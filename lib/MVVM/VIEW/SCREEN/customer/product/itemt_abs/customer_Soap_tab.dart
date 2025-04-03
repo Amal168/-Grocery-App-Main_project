@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 
-class SnacksTab extends StatefulWidget {
-  SnacksTab({super.key});
+class CustomerSoapTab extends StatefulWidget {
+  CustomerSoapTab({super.key});
 
   @override
-  State<SnacksTab> createState() => _SnacksTabState();
+  State<CustomerSoapTab> createState() => _CustomerSoapTabState();
 }
 
-class _SnacksTabState extends State<SnacksTab> {
+class _CustomerSoapTabState extends State<CustomerSoapTab> {
   String radiobuttion = " ";
   int selectIndex = 0;
 

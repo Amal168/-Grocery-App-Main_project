@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Ricetab extends StatefulWidget {
-  Ricetab({super.key});
+class CustomerRiceTab extends StatefulWidget {
+  CustomerRiceTab({super.key});
 
   @override
-  State<Ricetab> createState() => _RicetabState();
+  State<CustomerRiceTab> createState() => _CustomerRiceTabState();
 }
 
-class _RicetabState extends State<Ricetab> {
+class _CustomerRiceTabState extends State<CustomerRiceTab> {
   String radiobuttion = " ";
   int selectIndex = 0;
 
@@ -20,9 +20,9 @@ class _RicetabState extends State<Ricetab> {
             elevation: 10,
             child: Container(
                 height: 40,
-                decoration: BoxDecoration(border: Border.all(color: Colors.black26)),
+                decoration:
+                    BoxDecoration(border: Border.all(color: Colors.black26)),
                 child: ListView.builder(
-                  
                   scrollDirection: Axis.horizontal,
                   itemCount: 10,
                   itemBuilder: (context, index) {
@@ -60,7 +60,6 @@ class _RicetabState extends State<Ricetab> {
                           SizedBox(
                             height: 10,
                           ),
-
                           Container(
                             width: 118,
                             height: 121,
@@ -79,7 +78,9 @@ class _RicetabState extends State<Ricetab> {
                           SizedBox(
                             height: 10,
                           ),
-                          Text("Only 4 Left", style: TextStyle(fontSize: 15,color: Colors.red)),
+                          Text("Only 4 Left",
+                              style:
+                                  TextStyle(fontSize: 15, color: Colors.red)),
                           SizedBox(
                             height: 10,
                           ),
@@ -87,44 +88,12 @@ class _RicetabState extends State<Ricetab> {
                           SizedBox(
                             height: 10,
                           ),
-                         Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            
-                             Radio<String>(
-                              splashRadius: 50,
-                              value: '1',
-                              groupValue: radiobuttion,
-                              onChanged: (newValue) {
-                                setState(() {
-                                  radiobuttion = newValue!;
-                                });
-                              }),
-                          Text("Check",
-                              style: TextStyle(
-                                  fontSize: 15,
-                                  fontFamily: "Inria_Sans",
-                                  fontWeight: FontWeight.bold)),
-                          ],
-                         ),
-                         Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                             Radio<String>(
-                              value: '2',
-                              groupValue: radiobuttion,
-                              onChanged: (newValue) {
-                                setState(() {
-                                  radiobuttion = newValue!;
-                                });
-                              }),
-                          Text("Uncheck",
-                              style: TextStyle(
-                                  fontSize: 15,
-                                  fontFamily: "Inria_Sans",
-                                  fontWeight: FontWeight.bold))
-                          ],
-                         )
+                          ElevatedButton(
+                            onPressed: () {
+                              
+                            },
+                            child: Text("Selet"),
+                          )
                         ],
                       ),
                     );

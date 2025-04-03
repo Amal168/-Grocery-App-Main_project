@@ -7,6 +7,12 @@ import 'package:mainproject/MVVM/VIEW/SCREEN/ShopOwner/shop_item/itemt_abs/rice_
 import 'package:mainproject/MVVM/VIEW/SCREEN/ShopOwner/shop_item/itemt_abs/snacks_tab.dart';
 import 'package:mainproject/MVVM/VIEW/SCREEN/ShopOwner/shop_item/itemt_abs/toothpaste_tab.dart';
 import 'package:mainproject/MVVM/UTILS/color.dart';
+import 'package:mainproject/MVVM/VIEW/SCREEN/customer/product/customer_cart.dart';
+import 'package:mainproject/MVVM/VIEW/SCREEN/customer/product/itemt_abs/customer_Soap_tab.dart';
+import 'package:mainproject/MVVM/VIEW/SCREEN/customer/product/itemt_abs/customer_cookingoil_tab.dart';
+import 'package:mainproject/MVVM/VIEW/SCREEN/customer/product/itemt_abs/customer_rice_tab.dart';
+import 'package:mainproject/MVVM/VIEW/SCREEN/customer/product/itemt_abs/customer_snacks_tab.dart';
+import 'package:mainproject/MVVM/VIEW/SCREEN/customer/product/itemt_abs/customer_toothpaste_tab.dart';
 import 'package:mainproject/MVVM/VIEW/authenication/shopownwe/shopregister.dart';
 
 class ProductItems extends StatefulWidget {
@@ -58,40 +64,44 @@ class _ProductItemsState extends State<ProductItems>
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 20),
-            child: Stack(
-              children: [
-                Container(
-                  width: 40,
-                  height: 40,
-                  decoration:
-                      BoxDecoration(borderRadius: BorderRadius.circular(100)),
-                  child: IconButton(
-                      style: ButtonStyle(
-                          backgroundColor:
-                              WidgetStatePropertyAll(Colors.white)),
-                      onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (_) => Addproduct()));
-                      },
-                      icon: Icon(
-                        Icons.shopping_cart,
-                        weight: 50,
-                      )),
-                ),
-                Positioned(
-                    right: 0,
-                    top: 20,
-                    child: Container(
-                      width: 20,
-                      height: 20,
-                      child: Center(
-                        child: Icon(Icons.add),
-                      ),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                          color: appbuttoncolor),
-                    ))
-              ],
+            child: Container(
+              width: 40,
+              height: 40,
+              decoration:
+                  BoxDecoration(borderRadius: BorderRadius.circular(100)),
+              child: IconButton(
+                  style: ButtonStyle(
+                      backgroundColor:
+                          WidgetStatePropertyAll(Colors.white)),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => Addproduct()));
+                  },
+                  icon: Icon(
+                    Icons.chat_sharp,
+                    weight: 50,
+                  )),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: 20),
+            child: Container(
+              width: 40,
+              height: 40,
+              decoration:
+                  BoxDecoration(borderRadius: BorderRadius.circular(100)),
+              child: IconButton(
+                  style: ButtonStyle(
+                      backgroundColor:
+                          WidgetStatePropertyAll(Colors.white)),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => CustomerCart()));
+                  },
+                  icon: Icon(
+                    Icons.shopping_cart,
+                    weight: 50,
+                  )),
             ),
           )
         ],
@@ -123,11 +133,11 @@ class _ProductItemsState extends State<ProductItems>
             child: Text("All"),
           ),
           // Center(child: Text("Rice"),),
-          Ricetab(),
-          SoapTab(),
-          SnacksTab(),
-          ToothpasteTab(),
-          CookingoilTab()
+          CustomerRiceTab(),
+          CustomerSoapTab(),
+          CustomerSnacksTab(),
+          CustomerToothpasteTab(),
+          CustomerCookingoilTab()
         ]),
       ),
     );

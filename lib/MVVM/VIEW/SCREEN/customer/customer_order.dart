@@ -22,7 +22,7 @@ class _CustomerOrderState extends State<CustomerOrder> {
                 itemCount: 1,
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding: EdgeInsets.all(15.0),
+                    padding: const EdgeInsets.all(15.0),
                     child: Card(
                       elevation: 10,
                       shape: RoundedRectangleBorder(
@@ -31,7 +31,7 @@ class _CustomerOrderState extends State<CustomerOrder> {
                       child: Container(
                         width: 358,
                         height: 575,
-                        padding: EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(10),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15),
                           color: Colors.white,
@@ -66,60 +66,68 @@ class _CustomerOrderState extends State<CustomerOrder> {
                             const SizedBox(height: 10),
                             Expanded(
                               child: ListView.separated(
-                                separatorBuilder: (context, index) {
-                                  return const Divider();
-                                },
+                                separatorBuilder: (context, index) =>
+                                    const Divider(),
                                 itemCount: 3,
                                 itemBuilder: (context, index) {
-                                  return Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      Container(
-                                        width: 118,
-                                        height: 121,
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                        ),
-                                        child: ClipRRect(
-                                          // borderRadius:
-                                          //     BorderRadius.circular(10),
-                                          child: Image.asset(
-                                            "assets/images/sample.jpg",
-                                            fit: BoxFit.cover,
+                                  return Expanded(
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Container(
+                                          width: 118,
+                                          height: 121,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                          ),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            child: Image.asset(
+                                              "assets/images/sample.jpg",
+                                              fit: BoxFit.cover,
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                      const SizedBox(width: 20),
-                                      const Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: const [
-                                          Text(
-                                            "Product name",
-                                            style: TextStyle(
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.bold),
+                                        const SizedBox(width: 20),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: const [
+                                            Text(
+                                              "Product name",
+                                              style: TextStyle(
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            SizedBox(height: 5),
+                                            Text("1 Piece"),
+                                            SizedBox(height: 20),
+                                            Text(
+                                              "20 RS",
+                                              style: TextStyle(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                          ],
+                                        ),
+                                        const Spacer(),
+                                        Container(
+                                          height: 33,
+                                          width: 94,
+                                          decoration: BoxDecoration(
+                                            color: toggle2color,
+                                            borderRadius:
+                                                BorderRadius.circular(10),
                                           ),
-                                          SizedBox(height: 5),
-                                          Text("1 Piece"),
-                                          SizedBox(height: 20),
-                                          Text(
-                                            "20 RS",
-                                            style: TextStyle(
-                                                fontSize: 14,
-                                                fontWeight: FontWeight.bold),
+                                          child: const Icon(
+                                            Icons.check_outlined,
+                                            color: Colors.white,
                                           ),
-                                        ],
-                                      ),
-                                      const Spacer(),
-                                      Container(
-                                        height: 33,
-                                        width: 94,
-                                        decoration: BoxDecoration(color: toggle2color,borderRadius: BorderRadius.circular(10)),
-                                        child: Icon(Icons.check_outlined,color: Colors.white,),
-                                      )
-                                    ],
+                                        ),
+                                      ],
+                                    ),
                                   );
                                 },
                               ),
@@ -143,7 +151,7 @@ class _CustomerOrderState extends State<CustomerOrder> {
                                 ),
                               ),
                             ),
-                              SizedBox(height: 10,),
+                            const SizedBox(height: 10),
                             Card(
                               child: Container(
                                 width: 337,
@@ -158,22 +166,24 @@ class _CustomerOrderState extends State<CustomerOrder> {
                                 ),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                     Text(
+                                  children: const [
+                                    Text(
                                       "Total:",
                                       textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 14,color: Colors.white),
+                                      style:
+                                          TextStyle(fontSize: 14, color: Colors.white),
                                     ),
-                                    SizedBox(width: 20,),
+                                    SizedBox(width: 20),
                                     Text(
                                       "32.00Rs",
                                       textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 14,color: Colors.white),
+                                      style:
+                                          TextStyle(fontSize: 14, color: Colors.white),
                                     ),
                                   ],
                                 ),
                               ),
-                            )
+                            ),
                           ],
                         ),
                       ),

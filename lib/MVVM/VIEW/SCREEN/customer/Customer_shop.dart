@@ -51,25 +51,14 @@ class _CustomerShopState extends State<CustomerShop> {
                             SizedBox(
                               height: 20,
                             ),
-                            Stack(children: [
-                              CircleAvatar(
-                                radius: 62.5,
-                                backgroundColor: photocolor,
-                                child: Icon(
-                                  Icons.person,
-                                  size: 94,
-                                ),
+                            CircleAvatar(
+                              radius: 62.5,
+                              backgroundColor: photocolor,
+                              child: Icon(
+                                Icons.person,
+                                size: 94,
                               ),
-                              Positioned(
-                                  right: -10,
-                                  bottom: -10,
-                                  child: IconButton(
-                                      onPressed: () {},
-                                      icon: Icon(
-                                        Icons.camera_enhance,
-                                        size: 30,
-                                      )))
-                            ]),
+                            ),
                             SizedBox(
                               width: 20,
                             ),
@@ -79,20 +68,7 @@ class _CustomerShopState extends State<CustomerShop> {
                             )
                           ],
                         ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        IconButton(
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (_) => Shopeditprfile()));
-                            },
-                            icon: Icon(
-                              Icons.edit_square,
-                              size: 35,
-                            ))
+                        
                       ],
                     ),
                   ),
@@ -132,25 +108,13 @@ class _CustomerShopState extends State<CustomerShop> {
                             SizedBox(
                               height: 20,
                             ),
-                            Stack(children: [
-                              CircleAvatar(
-                                radius: 62.5,
-                                backgroundColor: photocolor,
-                                child: Icon(
-                                  Icons.person,
-                                  size: 94,
-                                ),
-                              ),
-                              Positioned(
-                                  right: -10,
-                                  bottom: -10,
-                                  child: IconButton(
-                                      onPressed: () {},
-                                      icon: Icon(
-                                        Icons.camera_enhance,
-                                        size: 30,
-                                      )))
-                            ]),
+                            CircleAvatar(
+                              radius: 62.5,
+                              backgroundColor: photocolor,
+                              child: Icon(
+                                Icons.person,
+                                size: 94,
+                              ),),
                             SizedBox(
                               width: 20,
                             ),
@@ -190,30 +154,7 @@ class _CustomerShopState extends State<CustomerShop> {
               SizedBox(
                 height: 10,
               ),
-              ProfileButtons(
-                iconph: Icon(Icons.feedback),
-                text: "Feedback",
-                ontap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (_) => Shopcommentrating()));
-                },
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              ProfileButtons(
-                iconph: Icon(Icons.light_mode),
-                text: "LightMode",
-                ontap: () {},
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              ProfileButtons(
-                iconph: Icon(Icons.logout),
-                text: "Logout",
-                ontap: () {},
-              )
+              
             ],
           ),
         ),

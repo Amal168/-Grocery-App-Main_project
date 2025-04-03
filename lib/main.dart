@@ -10,10 +10,12 @@ import 'package:mainproject/MVVM/VIEW/SCREEN/ShopOwner/shop_Order/orderSendList.
 import 'package:mainproject/MVVM/VIEW/SCREEN/ShopOwner/shop_bottum_bar.dart';
 import 'package:mainproject/MVVM/VIEW/SCREEN/ShopOwner/shop_item/shopitems.dart';
 import 'package:mainproject/MVVM/VIEW/SCREEN/customer/Customer_Shop_Main_Page.dart';
+import 'package:mainproject/MVVM/VIEW/SCREEN/customer/Customer_shop.dart';
 import 'package:mainproject/MVVM/VIEW/SCREEN/customer/Profile/Customer_Profile.dart';
 import 'package:mainproject/MVVM/VIEW/SCREEN/customer/Profile/edit_customer_profile.dart';
 import 'package:mainproject/MVVM/VIEW/SCREEN/customer/customer_Bottom.dart';
 import 'package:mainproject/MVVM/VIEW/SCREEN/customer/customer_order.dart';
+import 'package:mainproject/MVVM/VIEW/SCREEN/customer/product/customer_cart.dart';
 import 'package:mainproject/MVVM/VIEW/authenication/Commonlogin.dart';
 import 'package:mainproject/dummi_files/buttons.dart';
 import 'package:mainproject/firebase_options.dart';
@@ -53,7 +55,7 @@ class MyApp extends StatelessWidget {
         // home:Customerdetails()
         
         // home:Mainpage()
-        home:CustomerOrder()
+        home:CustomerCart()
         // home:CustomerBottom()
         // home:CustomerProfile()
         // home:EditCustomerProfile()
