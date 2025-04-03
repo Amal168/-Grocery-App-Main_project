@@ -9,14 +9,14 @@ import 'package:mainproject/MVVM/VIEW/SCREEN/ShopOwner/shop_item/itemt_abs/tooth
 import 'package:mainproject/MVVM/UTILS/color.dart';
 import 'package:mainproject/MVVM/VIEW/authenication/shopownwe/shopregister.dart';
 
-class Shopitems extends StatefulWidget {
-  const Shopitems({super.key});
+class ProductItems extends StatefulWidget {
+  const ProductItems({super.key});
 
   @override
-  State<Shopitems> createState() => _ShopitemsState();
+  State<ProductItems> createState() => _ProductItemsState();
 }
 
-class _ShopitemsState extends State<Shopitems>
+class _ProductItemsState extends State<ProductItems>
     with SingleTickerProviderStateMixin {
   late TabController tabcontrol;
 

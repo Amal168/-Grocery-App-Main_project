@@ -1,161 +1,129 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_navigation/src/routes/circular_reveal_clipper.dart';
+import 'package:mainproject/MVVM/UTILS/color.dart';
 import 'package:mainproject/MVVM/VIEW/SCREEN/ShopOwner/shop_Order/Shop_Customer_Chat.dart';
 import 'package:mainproject/MVVM/VIEW/SCREEN/ShopOwner/shop_Order/shop_customer_profile.dart';
-import 'package:mainproject/MVVM/UTILS/color.dart';
-import 'package:mainproject/MVVM/UTILS/custome/custometextfield.dart';
 
-class OrderReceavedList extends StatefulWidget {
-  const OrderReceavedList({super.key});
+class Orderreceavedlist extends StatefulWidget {
+  const Orderreceavedlist({super.key});
 
   @override
-  State<OrderReceavedList> createState() => _OrderReceavedListState();
+  State<Orderreceavedlist> createState() => _OrderreceavedlistState();
 }
 
-class _OrderReceavedListState extends State<OrderReceavedList> {
-  List<String> selectedRadioValues = List.generate(
-      10, (index) => ''); // List to store selected values per item
+class _OrderreceavedlistState extends State<Orderreceavedlist> {
+  List<String> selectedRadioValues = List.generate(3, (index) => '');
   String radiobuttion = " ";
-  int selectIndex = 0;
   final _subtotal = TextEditingController();
   final _detiveryFee = TextEditingController();
   final _discount = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
         appBar: AppBar(
           leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: Icon(Icons.keyboard_return),
-            iconSize: 35,
-          ),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: Icon(Icons.keyboard_return)),
           title: Text(
             "List",
             style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-              fontFamily: "Inknut_Antiqua",
-            ),
+                fontSize: 20,
+                fontFamily: "Inknut_Antiqua",
+                fontWeight: FontWeight.bold),
           ),
           centerTitle: true,
           actions: [
             IconButton(
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (_) => ShopCustomerChat()));
-              },
-              icon: Icon(Icons.chat),
-            ),
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => ShopCustomerChat()));
+                },
+                icon: Icon(Icons.chat)),
             IconButton(
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (_) => ShopCustomerProfile()));
-              },
-              icon: Icon(Icons.person),
-            ),
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => ShopCustomerProfile()));
+                },
+                icon: Icon(Icons.person))
           ],
         ),
-        body: Center(
-          child: Column(
-            children: [
-              SizedBox(
-                height: 20,
-              ),
-              Expanded(
-                  child: ListView.separated(
-                separatorBuilder: (context, index) {
-                  return Divider();
-                },
-                itemCount: 3,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    leading: Container(
-                      width: 118,
-                      height: 121,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30)),
-                      child: Image(
-                        image: AssetImage("asset/images (1).jpg"),
-                        fit: BoxFit.cover,
+        body: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: ListView.separated(
+              itemBuilder: (context, index) {
+                return ListTile(
+                  leading: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Image.asset(
+                      "asset/images (1).jpg",
+                      width: 80,
+                      height: 80,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  title: Row(
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Product Name",
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold),
+                          ),
+                          Text("1 Piece"),
+                          Text("20Rs"),
+                        ],
                       ),
-                    ),
-                    title: Row(
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text("Product Name",style: TextStyle(
-                                fontSize: 15,
-                                fontFamily: "Inria_Sans",
-                                fontWeight: FontWeight.bold),),
-                            Text("1 Peace",style: TextStyle(
-                                fontSize: 15,
-                                fontFamily: "Inria_Sans",
-                                fontWeight: FontWeight.bold),),
-                            SizedBox(
-                              height: 28,
-                            ),
-                            Text("20Rs",style: TextStyle(
-                                fontSize: 15,
-                                fontFamily: "Inria_Sans",
-                                fontWeight: FontWeight.bold),),
-                          ],
-                        ),
-                        SizedBox(width: 20,),
-                        Column(
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Radio<String>(
-                                    value: '1',
-                                    groupValue: radiobuttion,
-                                    onChanged: (newValue) {
-                                      setState(() {
-                                        if (selectIndex == index) {
-                                          radiobuttion = newValue!;
-                                        }
-                                      });
-                                    }),
-                                Text("Check")
-                              ],
-                            ),
-
-                            // SizedBox(height: -10,),
-                            Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Radio<String>(
-                                    // title: const Text("Invisible"),
-                                    value: '2',
-                                    groupValue: radiobuttion,
-                                    onChanged: (newValue) {
-                                      setState(() {
-                                        radiobuttion = newValue!;
-                                      });
-                                    }),
-                                Text("Uncheck")
-                              ],
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-
-                    // trailing:
-                  );
-                },
-              ))
-            ],
-          ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Column(
+                        mainAxisSize: MainAxisSize.min,
+                        // mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Radio(
+                                value: "1",
+                                groupValue: selectedRadioValues[index],
+                                onChanged: (value) {
+                                  setState(() {
+                                    selectedRadioValues[index] = value!;
+                                  });
+                                },
+                              ),
+                              Text("Check"),
+                            ],
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Radio(
+                                value: "2",
+                                groupValue: selectedRadioValues[index],
+                                onChanged: (value) {
+                                  setState(() {
+                                    selectedRadioValues[index] = value!;
+                                  });
+                                },
+                              ),
+                              Text("Uncheck"),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                );
+              },
+              separatorBuilder: (context, index) {
+                return Divider();
+              },
+              itemCount: 3),
         ),
         bottomSheet: Container(
           width: double.infinity,
@@ -171,15 +139,20 @@ class _OrderReceavedListState extends State<OrderReceavedList> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(height: 10,),
+                SizedBox(
+                  height: 10,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    Text("Subtotal",style: TextStyle(
-                                fontSize: 15,
-                                fontFamily: "Inknut_Antiqua",
-                                fontWeight: FontWeight.bold),),
+                    Text(
+                      "Subtotal",
+                      style: TextStyle(
+                          fontSize: 15,
+                          fontFamily: "Inknut_Antiqua",
+                          fontWeight: FontWeight.bold),
+                    ),
                     Container(
                       width: 88,
                       height: 32,
@@ -203,10 +176,13 @@ class _OrderReceavedListState extends State<OrderReceavedList> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    Text("Delivery Fee",style: TextStyle(
-                                fontSize: 15,
-                                fontFamily: "Inknut_Antiqua",
-                                fontWeight: FontWeight.bold),),
+                    Text(
+                      "Delivery Fee",
+                      style: TextStyle(
+                          fontSize: 15,
+                          fontFamily: "Inknut_Antiqua",
+                          fontWeight: FontWeight.bold),
+                    ),
                     Container(
                       width: 88,
                       height: 32,
@@ -230,10 +206,13 @@ class _OrderReceavedListState extends State<OrderReceavedList> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    Text("Discount",style: TextStyle(
-                                fontSize: 15,
-                                fontFamily: "Inknut_Antiqua",
-                                fontWeight: FontWeight.bold),),
+                    Text(
+                      "Discount",
+                      style: TextStyle(
+                          fontSize: 15,
+                          fontFamily: "Inknut_Antiqua",
+                          fontWeight: FontWeight.bold),
+                    ),
                     Container(
                       width: 88,
                       height: 32,
@@ -263,10 +242,11 @@ class _OrderReceavedListState extends State<OrderReceavedList> {
                             radiobuttion = newValue!;
                           });
                         }),
-                    Text("Check",style: TextStyle(
-                                fontSize: 15,
-                                fontFamily: "Inria_Sans",
-                                fontWeight: FontWeight.bold)),
+                    Text("Check",
+                        style: TextStyle(
+                            fontSize: 15,
+                            fontFamily: "Inria_Sans",
+                            fontWeight: FontWeight.bold)),
                     Radio<String>(
                         // title: const Text("Invisible"),
                         value: '2',
@@ -276,25 +256,27 @@ class _OrderReceavedListState extends State<OrderReceavedList> {
                             radiobuttion = newValue!;
                           });
                         }),
-                    Text("Uncheck",style: TextStyle(
-                                fontSize: 15,
-                                fontFamily: "Inria_Sans",
-                                fontWeight: FontWeight.bold))
+                    Text("Uncheck",
+                        style: TextStyle(
+                            fontSize: 15,
+                            fontFamily: "Inria_Sans",
+                            fontWeight: FontWeight.bold))
                   ],
                 ),
                 MaterialButton(
-                  elevation: 10.0,
+                    elevation: 10.0,
                     minWidth: 337,
                     height: 40,
                     // color: greenbutton,
                     shape: Border.all(color: Colors.black26),
                     onPressed: () {
-                      
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content:
+                              Text("A message will be send to the customer\nAbout the order is compleated")));
                     },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        
                         Text(
                           "Total: ",
                           style: TextStyle(
@@ -312,10 +294,13 @@ class _OrderReceavedListState extends State<OrderReceavedList> {
                         SizedBox(
                           width: 93,
                         ),
-                        Text("Send",style: TextStyle(
+                        Text(
+                          "Send",
+                          style: TextStyle(
                               fontSize: 15,
                               fontFamily: "Inknut_Antiqua",
-                              fontWeight: FontWeight.bold),),
+                              fontWeight: FontWeight.bold),
+                        ),
                         Icon(Icons.send)
                       ],
                     ))

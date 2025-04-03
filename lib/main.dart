@@ -1,31 +1,27 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:mainproject/MVVM/VIEW/SCREEN/ShopOwner/shop_Order/Shop_Customer_Chat.dart';
-import 'package:mainproject/MVVM/VIEW/SCREEN/ShopOwner/addoffers.dart';
-import 'package:mainproject/MVVM/VIEW/SCREEN/ShopOwner/shop_item/addproduct.dart';
-import 'package:mainproject/MVVM/VIEW/SCREEN/ShopOwner/shop_item/itemt_abs/rice_tab.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:mainproject/MVVM/UTILS/slider.dart';
 import 'package:mainproject/MVVM/VIEW/SCREEN/ShopOwner/mainpage.dart';
 import 'package:mainproject/MVVM/VIEW/SCREEN/ShopOwner/shop_Order/orderReceavedList.dart';
-import 'package:mainproject/MVVM/VIEW/SCREEN/ShopOwner/shop_item/shopitems.dart';
+import 'package:mainproject/MVVM/VIEW/SCREEN/ShopOwner/shop_Order/orderReceivedSend.dart';
 import 'package:mainproject/MVVM/VIEW/SCREEN/ShopOwner/shop_Order/orderSendList.dart';
-import 'package:mainproject/MVVM/VIEW/SCREEN/ShopOwner/shop_profile/shopCommentRating.dart';
-import 'package:mainproject/MVVM/VIEW/SCREEN/ShopOwner/shop_profile/shopEditPrfile.dart';
-import 'package:mainproject/MVVM/VIEW/SCREEN/ShopOwner/shop_profile/shopprofile.dart';
-import 'package:mainproject/MVVM/UTILS/custome/customebutton.dart';
-import 'package:mainproject/MVVM/UTILS/custome/custometextfield.dart';
-import 'package:mainproject/MVVM/VIEW/authenication/customerregister/customerRegister.dart';
-import 'package:mainproject/MVVM/VIEW/authenication/shopownwe/shopregister.dart';
-import 'package:mainproject/buttons.dart';
-import 'package:mainproject/MVVM/VIEW/authenication/customerregister/customerdetails.dart';
-import 'package:mainproject/dupe.dart';
-import 'package:mainproject/MVVM/VIEW/authenication/forgotpassword.dart';
+import 'package:mainproject/MVVM/VIEW/SCREEN/ShopOwner/shop_bottum_bar.dart';
+import 'package:mainproject/MVVM/VIEW/SCREEN/ShopOwner/shop_item/shopitems.dart';
+import 'package:mainproject/MVVM/VIEW/SCREEN/customer/Customer_Shop_Main_Page.dart';
+import 'package:mainproject/MVVM/VIEW/SCREEN/customer/Profile/Customer_Profile.dart';
+import 'package:mainproject/MVVM/VIEW/SCREEN/customer/Profile/edit_customer_profile.dart';
+import 'package:mainproject/MVVM/VIEW/SCREEN/customer/customer_Bottom.dart';
+import 'package:mainproject/MVVM/VIEW/SCREEN/customer/customer_order.dart';
 import 'package:mainproject/MVVM/VIEW/authenication/Commonlogin.dart';
-import 'package:mainproject/MVVM/VIEW/authenication/commonregister.dart';
-import 'package:mainproject/MVVM/VIEW/authenication/shopownwe/shopownerdetail.dart';
-import 'package:mainproject/dupesendrecive.dart';
+import 'package:mainproject/dummi_files/buttons.dart';
+import 'package:mainproject/firebase_options.dart';
 
 late Size mq;
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
@@ -47,17 +43,23 @@ class MyApp extends StatelessWidget {
         // home:Addproduct()
         // home:Addoffers()
         // home:ShopCustomerChat()
-        // home:OrderReceavedList()
-        // home:Ordersendlist()
+        // home:Orderreceavedlist()
+        // home: Ordersendlist()
         // home:Shopcommentrating()
         // home:Shopeditprfile()
         // home:Shopprofile()
         // home:Forgotpassword()
         // home:Shopregister()
         // home:Customerdetails()
-        // home:Eventorgbottum()
+        
         // home:Mainpage()
-        home:Commonlogin()
+        home:CustomerOrder()
+        // home:CustomerBottom()
+        // home:CustomerProfile()
+        // home:EditCustomerProfile()
+        // home:Commonlogin()
+        // home:CustomerShopMainPage()
+        // home:ShopBottumBar()
         // home:Dupe()
         // home: Dupesendrecive()
         // home: Orderreceivedsend()
@@ -65,6 +67,9 @@ class MyApp extends StatelessWidget {
         // home:Customerregister()
         // home:Customerregister()
         // home:Ricetab()
+        // home:ShopMainPage()
+        // home:Sliderpage()
+        // home:ShopBottumBar()
         // home:Shopitems()
         // home:Commonregister()
         // home:Buttons()

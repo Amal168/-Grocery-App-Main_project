@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mainproject/MVVM/VIEW/SCREEN/ShopOwner/shop_Order/orderReceavedList.dart';
+import 'package:mainproject/MVVM/VIEW/SCREEN/ShopOwner/shop_Order/orderReceivedSend.dart';
 
 class Orderreceved extends StatefulWidget {
   const Orderreceved({super.key});
@@ -27,7 +28,7 @@ class _OrderrecevedState extends State<Orderreceved> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (_) => OrderReceavedList()));
+                                builder: (_) => Orderreceavedlist()));
                       },
                       child: Card(
                         color: Colors.white,

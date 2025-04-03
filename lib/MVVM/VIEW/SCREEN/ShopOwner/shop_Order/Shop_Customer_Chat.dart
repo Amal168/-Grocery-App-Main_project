@@ -25,37 +25,51 @@ class _ShopCustomerChatState extends State<ShopCustomerChat> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:chatbackground,
+      backgroundColor: chatbackground,
       appBar: AppBar(
         backgroundColor: toggle2color,
-         leading: IconButton(
+        leading: IconButton(
           onPressed: () {
             setState(() {
               Navigator.pop(context);
             });
           },
-          icon: Icon(Icons.keyboard_return,color: Colors.white,),
+          icon: Icon(
+            Icons.keyboard_return,
+            color: Colors.white,
+          ),
           iconSize: 35,
         ),
-        title:  Row(
+        title: Row(
           children: [
             CircleAvatar(
-              // radius: 25,
+                // radius: 25,
+                ),
+            SizedBox(
+              width: 10,
             ),
-            SizedBox(width: 10,),
-            Text("Customer Name",style: TextStyle(color: Colors.white),),
+            Text(
+              "Customer Name",
+              style: TextStyle(color: Colors.white),
+            ),
           ],
         ),
-        actions: [ IconButton(
-          onPressed: () {
-            setState(() {
-              Navigator.pop(context);
-            });
-          },
-          icon: Icon(Icons.phone,color: Colors.white,),
-          iconSize: 35,
-        ),],
-        ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              setState(() {
+                ScaffoldMessenger.of(context)
+                    .showSnackBar(SnackBar(content: Text("Calling Customer")));
+              });
+            },
+            icon: Icon(
+              Icons.phone,
+              color: Colors.white,
+            ),
+            iconSize: 35,
+          ),
+        ],
+      ),
       body: Column(
         children: [
           Expanded(child: Container()), // Chat messages will go here
@@ -72,16 +86,14 @@ class _ShopCustomerChatState extends State<ShopCustomerChat> {
                       width: 311,
                       height: 50,
                       child: TextField(
-                        
                         controller: chatController,
-                        decoration:  InputDecoration(
+                        decoration: InputDecoration(
                           fillColor: Colors.white,
                           filled: true,
                           suffixIcon: Icon(Icons.camera_alt),
                           hintText: "Type a message...",
                           border: OutlineInputBorder(
-                            borderRadius:BorderRadius.circular(30)
-                          ),
+                              borderRadius: BorderRadius.circular(30)),
                         ),
                       ),
                     ),
@@ -90,38 +102,39 @@ class _ShopCustomerChatState extends State<ShopCustomerChat> {
                 Padding(
                   padding: const EdgeInsets.all(05.0),
                   child: Column(
-                    
                     children: [
                       Container(
                         width: 50,
                         height: 50,
                         decoration: BoxDecoration(
-                          color: greenbutton,
-                          border: Border.all(),
-                          borderRadius: BorderRadius.circular(50)
-                        ),
+                            color: greenbutton,
+                            border: Border.all(),
+                            borderRadius: BorderRadius.circular(50)),
                         child: IconButton(
-                          
                           // color: toglecolor,
                           onPressed: sendMessage,
-                          icon: const Icon(Icons.mic,size: 35,),
+                          icon: const Icon(
+                            Icons.mic,
+                            size: 35,
+                          ),
                         ),
                       ),
-                      SizedBox(height: 10,),
+                      SizedBox(
+                        height: 10,
+                      ),
                       Container(
                         width: 50,
                         height: 50,
                         decoration: BoxDecoration(
-                          color: greenbutton,
-                          border: Border.all(),
-                          borderRadius: BorderRadius.circular(50)
-                        ),
-                        
+                            color: greenbutton,
+                            border: Border.all(),
+                            borderRadius: BorderRadius.circular(50)),
                         child: IconButton(
-                          
                           // color: toglecolor,
                           onPressed: sendMessage,
-                          icon: const Icon(Icons.send,),
+                          icon: const Icon(
+                            Icons.send,
+                          ),
                         ),
                       ),
                     ],
@@ -130,7 +143,6 @@ class _ShopCustomerChatState extends State<ShopCustomerChat> {
               ],
             ),
           ),
-          
         ],
       ),
     );
