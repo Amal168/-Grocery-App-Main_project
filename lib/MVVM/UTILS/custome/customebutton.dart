@@ -7,6 +7,7 @@ class Customebutton extends StatelessWidget {
   double? textsize;
   Color? textcolor;
   double? hight;
+  String? textstyl;
   FontWeight? textweight;
   WidgetStateProperty<Color?>? color;
   WidgetStateProperty<BorderSide?>? borderthick;
@@ -16,6 +17,7 @@ class Customebutton extends StatelessWidget {
     required this.onPressed,
     required this.text,
     required this.color,
+    this.textstyl,
     this.borderthick,
     this.hight,
     this.width,
@@ -27,18 +29,18 @@ class Customebutton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return Container(
       width: width,
       height: hight,
       child: ElevatedButton(
           style: ButtonStyle(
-              backgroundColor: color,
-              side: borderthick,
-              shape: shape),
+              backgroundColor: color, side: borderthick, shape: shape),
           onPressed: onPressed,
           child: Text(
             text!,
             style: TextStyle(
+              fontFamily: textstyl,
               fontSize: textsize,
               color: textcolor,
               fontWeight: textweight,

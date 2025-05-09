@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mainproject/MVVM/VIEW/SCREEN/ShopOwner/shop_Order/orderReceved.dart';
 import 'package:mainproject/MVVM/VIEW/SCREEN/ShopOwner/shop_Order/orderSend.dart';
 import 'package:mainproject/MVVM/UTILS/color.dart';
-import 'package:mainproject/MVVM/VIEW/authenication/commonregister.dart';
-import 'package:mainproject/MVVM/VIEW/authenication/Commonlogin.dart';
+import 'package:mainproject/MVVM/VIEW/authenication/Common_screens/commonregister.dart';
+import 'package:mainproject/MVVM/VIEW/authenication/Common_screens/Commonlogin.dart';
 import 'package:mainproject/MVVM/VIEW/authenication/shopownwe/shopownerdetail.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 

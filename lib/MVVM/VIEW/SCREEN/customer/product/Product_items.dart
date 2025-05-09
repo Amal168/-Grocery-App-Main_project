@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mainproject/MVVM/VIEW/SCREEN/Common_Screen/Shop_Customer_Chat.dart';
 import 'package:mainproject/MVVM/VIEW/SCREEN/ShopOwner/shop_item/addproduct.dart';
 import 'package:mainproject/MVVM/VIEW/SCREEN/ShopOwner/shop_item/itemt_abs/Soap_tab.dart';
 import 'package:mainproject/MVVM/VIEW/SCREEN/ShopOwner/shop_item/itemt_abs/all_tab.dart';
@@ -8,6 +9,7 @@ import 'package:mainproject/MVVM/VIEW/SCREEN/ShopOwner/shop_item/itemt_abs/snack
 import 'package:mainproject/MVVM/VIEW/SCREEN/ShopOwner/shop_item/itemt_abs/toothpaste_tab.dart';
 import 'package:mainproject/MVVM/UTILS/color.dart';
 import 'package:mainproject/MVVM/VIEW/SCREEN/customer/product/customer_cart.dart';
+import 'package:mainproject/MVVM/VIEW/SCREEN/customer/product/itemt_abs/Customer_all_tab.dart';
 import 'package:mainproject/MVVM/VIEW/SCREEN/customer/product/itemt_abs/customer_Soap_tab.dart';
 import 'package:mainproject/MVVM/VIEW/SCREEN/customer/product/itemt_abs/customer_cookingoil_tab.dart';
 import 'package:mainproject/MVVM/VIEW/SCREEN/customer/product/itemt_abs/customer_rice_tab.dart';
@@ -47,7 +49,7 @@ class _ProductItemsState extends State<ProductItems>
         title: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Container(
-            width: 250,
+            // width: 250,
             height: 35,
             child: TextFormField(
               validator: (value) {},
@@ -75,7 +77,7 @@ class _ProductItemsState extends State<ProductItems>
                           WidgetStatePropertyAll(Colors.white)),
                   onPressed: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (_) => Addproduct()));
+                        MaterialPageRoute(builder: (_) => ShopCustomerChat()));
                   },
                   icon: Icon(
                     Icons.chat_sharp,
@@ -105,7 +107,12 @@ class _ProductItemsState extends State<ProductItems>
             ),
           )
         ],
-        bottom: TabBar(isScrollable: true, controller: tabcontrol, tabs: [
+        bottom: TabBar(
+          labelColor: Colors.white,
+          unselectedLabelColor: Colors.white,
+          indicatorColor: Colors.white,
+          indicatorWeight: 5,
+          isScrollable: true, controller: tabcontrol, tabs: [
           Tab(
             text: "all",
           ),
@@ -129,10 +136,11 @@ class _ProductItemsState extends State<ProductItems>
       body: Expanded(
         child: TabBarView(controller: tabcontrol, children: [
           //  AllTabPage(),
-          Center(
-            child: Text("All"),
-          ),
+          // Center(
+          //   child: Text("All"),
+          // ),
           // Center(child: Text("Rice"),),
+          CustomerAllTab(),
           CustomerRiceTab(),
           CustomerSoapTab(),
           CustomerSnacksTab(),

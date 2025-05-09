@@ -15,15 +15,17 @@ import 'package:mainproject/MVVM/VIEW/SCREEN/customer/Profile/Customer_Profile.d
 import 'package:mainproject/MVVM/VIEW/SCREEN/customer/Profile/edit_customer_profile.dart';
 import 'package:mainproject/MVVM/VIEW/SCREEN/customer/customer_Bottom.dart';
 import 'package:mainproject/MVVM/VIEW/SCREEN/customer/customer_order.dart';
+import 'package:mainproject/MVVM/VIEW/SCREEN/customer/product/Product_items.dart';
 import 'package:mainproject/MVVM/VIEW/SCREEN/customer/product/customer_cart.dart';
-import 'package:mainproject/MVVM/VIEW/authenication/Commonlogin.dart';
+import 'package:mainproject/MVVM/VIEW/authenication/Common_screens/Commonlogin.dart';
+import 'package:mainproject/MVVM/VIEW/authenication/Common_screens/SplashScreen.dart';
 import 'package:mainproject/dummi_files/buttons.dart';
 import 'package:mainproject/firebase_options.dart';
 
 late Size mq;
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  // WidgetsFlutterBinding.ensureInitialized();
+  // await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
@@ -32,7 +34,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    mq = MediaQuery.of(context).size;
+    
     return GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
@@ -41,40 +43,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        // home:Shopownerdetail()
-        // home:Addproduct()
-        // home:Addoffers()
-        // home:ShopCustomerChat()
-        // home:Orderreceavedlist()
-        // home: Ordersendlist()
-        // home:Shopcommentrating()
-        // home:Shopeditprfile()
-        // home:Shopprofile()
-        // home:Forgotpassword()
-        // home:Shopregister()
-        // home:Customerdetails()
-        
-        // home:Mainpage()
-        home:CustomerCart()
-        // home:CustomerBottom()
-        // home:CustomerProfile()
-        // home:EditCustomerProfile()
-        // home:Commonlogin()
-        // home:CustomerShopMainPage()
-        // home:ShopBottumBar()
-        // home:Dupe()
-        // home: Dupesendrecive()
-        // home: Orderreceivedsend()
-        // home:CustomToggleButton()
-        // home:Customerregister()
-        // home:Customerregister()
-        // home:Ricetab()
-        // home:ShopMainPage()
-        // home:Sliderpage()
-        // home:ShopBottumBar()
-        // home:Shopitems()
-        // home:Commonregister()
-        // home:Buttons()
+        home:  ShopBottumBar(),
         );
   }
 }

@@ -3,6 +3,7 @@ import 'package:mainproject/MVVM/VIEW/SCREEN/ShopOwner/mainpage.dart';
 import 'package:mainproject/MVVM/UTILS/color.dart';
 import 'package:mainproject/MVVM/UTILS/custome/customebutton.dart';
 import 'package:mainproject/MVVM/UTILS/custome/custometextfield.dart';
+import 'package:mainproject/MVVM/VIEW/SCREEN/ShopOwner/shop_bottum_bar.dart';
 
 class Shopownerdetail extends StatefulWidget {
   const Shopownerdetail({super.key});
@@ -32,7 +33,9 @@ class _ShopownerdetailState extends State<Shopownerdetail> {
       child: Scaffold(
           appBar: AppBar(
             leading: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pop(context);
+              },
               icon: Icon(Icons.keyboard_return),
               iconSize: 35,
             ),
@@ -97,6 +100,8 @@ class _ShopownerdetailState extends State<Shopownerdetail> {
                               validate: (p0) {
                                 if (_phone.text.isEmpty) {
                                   return "Enter your Phone";
+                                }else  if (_phone.text.length!=10) {
+                                  return "Check your Phone";
                                 }
                                 return null;
                               },
@@ -165,16 +170,15 @@ class _ShopownerdetailState extends State<Shopownerdetail> {
                         width: 350,
                         hight: 60,
                         onPressed: () {
-                          if (formkey.currentState!.validate()) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(content: Text("Enter your details")));
-                          }else{
-                            setState(() {
-                            Navigator.push(context,
-                                MaterialPageRoute(builder: (_) => Mainpage()));
-                          });
+                         if (formkey.currentState!.validate()) {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (_) => ShopBottumBar()));
+                          } else if (formkey.currentState!.validate()) {
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                content: Text("Please Enter All Datas")));
                           }
-                          return null;
                         },
                         text: "Submit",
                         color: WidgetStatePropertyAll(redbutton))

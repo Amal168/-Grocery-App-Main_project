@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mainproject/MVVM/UTILS/color.dart';
 
 
 class CustomerToothpasteTab extends StatefulWidget {
@@ -11,6 +12,17 @@ class CustomerToothpasteTab extends StatefulWidget {
 class _CustomerToothpasteTabState extends State<CustomerToothpasteTab> {
   String radiobuttion = " ";
   int selectIndex = 0;
+  List paste = ["All","Pastes","brushes","mouth Wash","toungh cleaner"];
+   Color lowcolor = redbutton;
+  Color highcolor = toglecolor;
+  int count = 6;
+   bool buttonindex=true;
+  void buttoncolor(index) {
+   setState(() {
+      buttonindex = index!;
+   });
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -21,11 +33,11 @@ class _CustomerToothpasteTabState extends State<CustomerToothpasteTab> {
             elevation: 10,
             child: Container(
                 height: 40,
-                decoration: BoxDecoration(border: Border.all(color: Colors.black26)),
+                decoration:
+                    BoxDecoration(border: Border.all(color: Colors.black26)),
                 child: ListView.builder(
-                  
                   scrollDirection: Axis.horizontal,
-                  itemCount: 10,
+                  itemCount: paste.length,
                   itemBuilder: (context, index) {
                     return TextButton(
                         onPressed: () {
@@ -34,7 +46,7 @@ class _CustomerToothpasteTabState extends State<CustomerToothpasteTab> {
                           });
                         },
                         child: Text(
-                          "data",
+                          paste[index],
                         ));
                   },
                 )),
@@ -61,7 +73,6 @@ class _CustomerToothpasteTabState extends State<CustomerToothpasteTab> {
                           SizedBox(
                             height: 10,
                           ),
-
                           Container(
                             width: 118,
                             height: 121,
@@ -80,7 +91,24 @@ class _CustomerToothpasteTabState extends State<CustomerToothpasteTab> {
                           SizedBox(
                             height: 10,
                           ),
-                          Text("Only 4 Left", style: TextStyle(fontSize: 15,color: Colors.red)),
+                          Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text("Only ",
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      color: count < 4 ? lowcolor : highcolor)),
+                              Text("${count} ",
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      color: count < 4 ? lowcolor : highcolor)),
+                              Text("Left",
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      color: count < 4 ? lowcolor : highcolor)),
+                            ],
+                          ),
                           SizedBox(
                             height: 10,
                           ),
@@ -88,44 +116,21 @@ class _CustomerToothpasteTabState extends State<CustomerToothpasteTab> {
                           SizedBox(
                             height: 10,
                           ),
-                         Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            
-                             Radio<String>(
-                              splashRadius: 50,
-                              value: '1',
-                              groupValue: radiobuttion,
-                              onChanged: (newValue) {
-                                setState(() {
-                                  radiobuttion = newValue!;
-                                });
-                              }),
-                          Text("Check",
+                           ElevatedButton(
+                            style: ButtonStyle(
+                                backgroundColor: WidgetStatePropertyAll(
+                                    buttonindex == 0
+                                        ? Colors.white
+                                        : toggle2color)),
+                            onPressed: () {},
+                            child: Text(
+                              "Selet",
                               style: TextStyle(
-                                  fontSize: 15,
-                                  fontFamily: "Inria_Sans",
-                                  fontWeight: FontWeight.bold)),
-                          ],
-                         ),
-                         Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                             Radio<String>(
-                              value: '2',
-                              groupValue: radiobuttion,
-                              onChanged: (newValue) {
-                                setState(() {
-                                  radiobuttion = newValue!;
-                                });
-                              }),
-                          Text("Uncheck",
-                              style: TextStyle(
-                                  fontSize: 15,
-                                  fontFamily: "Inria_Sans",
-                                  fontWeight: FontWeight.bold))
-                          ],
-                         )
+                                  color: buttonindex == 0
+                                      ? Colors.black
+                                      : Colors.white),
+                            ),
+                          )
                         ],
                       ),
                     );

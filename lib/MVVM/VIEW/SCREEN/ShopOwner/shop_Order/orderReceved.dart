@@ -11,6 +11,13 @@ class Orderreceved extends StatefulWidget {
 }
 
 class _OrderrecevedState extends State<Orderreceved> {
+  List Recive = [
+    "Sithara",
+    "Arjune",
+    "Pokiry",
+    "vishal",
+    "Sehal"
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +28,7 @@ class _OrderrecevedState extends State<Orderreceved> {
             children: [
               Expanded(
                 child: ListView.builder(
-                  itemCount: 5,
+                  itemCount: Recive.length,
                   itemBuilder: (context, index) {
                     return InkWell(
                       onTap: () {
@@ -35,7 +42,7 @@ class _OrderrecevedState extends State<Orderreceved> {
                         elevation: 10,
                         child: ListTile(
                           leading: CircleAvatar(),
-                          title: Text("Customer Name"),
+                          title: Text(Recive[index]),
                         ),
                       ),
                     );

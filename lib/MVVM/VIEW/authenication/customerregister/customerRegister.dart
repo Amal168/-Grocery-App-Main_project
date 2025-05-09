@@ -3,6 +3,8 @@ import 'package:mainproject/MVVM/UTILS/color.dart';
 import 'package:mainproject/MVVM/UTILS/custome/customebutton.dart';
 import 'package:mainproject/MVVM/UTILS/custome/custometextfield.dart';
 import 'package:mainproject/MVVM/VIEW/authenication/customerregister/customerdetails.dart';
+import 'package:mainproject/Provider/customeremailpassword.dart';
+import 'package:provider/provider.dart';
 
 class Customerregister extends StatefulWidget {
   const Customerregister({super.key});
@@ -16,39 +18,54 @@ class _CustomerregisterState extends State<Customerregister> {
   final _Email = TextEditingController();
   final _Password = TextEditingController();
   final _Conferm = TextEditingController();
+  final formkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    return
-      Container(
+    return Container(
+      child: Form(
+        key: formkey,
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Custometextfield(
-                  hinttext: "Customer Name ",
-                  validate: (p0) {},
-                  textEditingController: _Shop),
               SizedBox(
-                height: 10,
+                height: 50,
               ),
               Custometextfield(
-                  hinttext: "Email",
-                  validate: (p0) {},
+                  hinttext: "Customer Email",
+                  validate: (p0) {
+                    if (_Email.text.isEmpty) {
+                      return "Enter Email Please";
+                    }
+                    return null;
+                  },
                   textEditingController: _Email),
               SizedBox(
                 height: 10,
               ),
               Custometextfield(
                   hinttext: "Password",
-                  validate: (p0) {},
+                  validate: (p0) {
+                    if (_Password.text.isEmpty) {
+                      return "Enter Password Please";
+                    }
+                    return null;
+                  },
                   textEditingController: _Password),
               SizedBox(
                 height: 10,
               ),
               Custometextfield(
                   hinttext: "Conferm Password",
-                  validate: (p0) {},
+                  validate: (p0) {
+                    if (_Conferm.text.isEmpty) {
+                      return "Enter Confrem Your Password Please";
+                    }else  if (_Conferm.text!=_Password.text) {
+                      return "Enter Confrem Your Password And Conferm Password Please";
+                    }
+                    return null;
+                  },
                   textEditingController: _Conferm),
               SizedBox(
                 height: 20,
@@ -61,16 +78,32 @@ class _CustomerregisterState extends State<Customerregister> {
                   hight: 60,
                   onPressed: () {
                     setState(() {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (_) => Customerdetails()));
-                    });
+                      if (formkey.currentState!.validate()) {
+
+                       Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) => Customerdetails()));
+                      } 
+                      else if (_Conferm.text!=_Password.text) {
+                         ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    elevation: 10,
+                                    backgroundColor: toggle2color,
+                                    shape: CircleBorder(eccentricity: 0.9),
+                                      content:
+                                          Text("Please Check Your Email And Password",textAlign: TextAlign.center,)));
+                      }
+                      
+                    }
+                    );
                   },
                   text: "Submit",
                   color: WidgetStatePropertyAll(redbutton))
             ],
           ),
         ),
-
+      ),
     );
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:mainproject/MVVM/UTILS/color.dart';
 
 class SnacksTab extends StatefulWidget {
   SnacksTab({super.key});
@@ -11,6 +11,9 @@ class SnacksTab extends StatefulWidget {
 class _SnacksTabState extends State<SnacksTab> {
   String radiobuttion = " ";
   int selectIndex = 0;
+  final stocknumber = TextEditingController();
+  List snacks = ["All","Biscute","Packet Snacks","Loose Snaks","Laces","Ice Cream"];
+
 
   @override
   Widget build(BuildContext context) {
@@ -21,20 +24,21 @@ class _SnacksTabState extends State<SnacksTab> {
             elevation: 10,
             child: Container(
                 height: 40,
-                decoration: BoxDecoration(border: Border.all(color: Colors.black26)),
+                decoration:
+                    BoxDecoration(border: Border.all(color: Colors.black26)),
                 child: ListView.builder(
-                  
                   scrollDirection: Axis.horizontal,
-                  itemCount: 10,
+                  itemCount: snacks.length,
                   itemBuilder: (context, index) {
                     return TextButton(
+                       style: ButtonStyle(foregroundColor: WidgetStatePropertyAll(selectIndex==index?toggle2color:Colors.grey)),
                         onPressed: () {
                           setState(() {
                             selectIndex = index;
                           });
                         },
                         child: Text(
-                          "data",
+                          snacks[index],
                         ));
                   },
                 )),
@@ -46,14 +50,14 @@ class _SnacksTabState extends State<SnacksTab> {
                   crossAxisCount: 2,
                   crossAxisSpacing: 2,
                   mainAxisSpacing: 3,
-                  mainAxisExtent: 370),
+                  mainAxisExtent: 360),
               itemBuilder: (context, index) {
                 switch (selectIndex) {
                   case 0:
                     return Container(
-                      margin: EdgeInsets.all(10),
+                      margin: EdgeInsets.all(5),
                       decoration: BoxDecoration(
-                          border: Border.all(),
+                          border: Border.all(color: const Color.fromARGB(255, 199, 199, 199)),
                           borderRadius: BorderRadius.circular(15)),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -61,13 +65,12 @@ class _SnacksTabState extends State<SnacksTab> {
                           SizedBox(
                             height: 10,
                           ),
-
                           Container(
                             width: 118,
                             height: 121,
-                            // child: Image.asset("asset/images (1).jpg",fit: BoxFit.cover,),
+                            child: Image.asset("asset/images.jpg",fit: BoxFit.cover,),
                             decoration: BoxDecoration(
-                                border: Border.all(),
+                                border: Border.all(color: const Color.fromARGB(255, 199, 199, 199)),
                                 borderRadius: BorderRadius.circular(30)),
                           ),
                           SizedBox(
@@ -80,7 +83,9 @@ class _SnacksTabState extends State<SnacksTab> {
                           SizedBox(
                             height: 10,
                           ),
-                          Text("Only 4 Left", style: TextStyle(fontSize: 15,color: Colors.red)),
+                          Text("Only 4 Left",
+                              style:
+                                  TextStyle(fontSize: 15, color: Colors.red)),
                           SizedBox(
                             height: 10,
                           ),
@@ -88,44 +93,87 @@ class _SnacksTabState extends State<SnacksTab> {
                           SizedBox(
                             height: 10,
                           ),
-                         Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            
-                             Radio<String>(
-                              splashRadius: 50,
-                              value: '1',
-                              groupValue: radiobuttion,
-                              onChanged: (newValue) {
-                                setState(() {
-                                  radiobuttion = newValue!;
-                                });
-                              }),
-                          Text("Check",
-                              style: TextStyle(
-                                  fontSize: 15,
-                                  fontFamily: "Inria_Sans",
-                                  fontWeight: FontWeight.bold)),
-                          ],
-                         ),
-                         Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                             Radio<String>(
-                              value: '2',
-                              groupValue: radiobuttion,
-                              onChanged: (newValue) {
-                                setState(() {
-                                  radiobuttion = newValue!;
-                                });
-                              }),
-                          Text("Uncheck",
-                              style: TextStyle(
-                                  fontSize: 15,
-                                  fontFamily: "Inria_Sans",
-                                  fontWeight: FontWeight.bold))
-                          ],
-                         )
+                          Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              ElevatedButton(
+                                  style: ButtonStyle(
+                                      // side:
+                                      //     WidgetStatePropertyAll(BorderSide()),
+                                      backgroundColor:
+                                          WidgetStatePropertyAll(button1)),
+                                  onPressed: () {
+                                    showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return AlertDialog(
+                                          content: TextFormField(
+                                            controller: stocknumber,
+                                            validator: (value) {
+                                              if (stocknumber.text.isEmpty) {
+                                                return "Enter the stocks";
+                                              }
+                                              return null;
+                                            },
+                                            keyboardType: TextInputType.number,
+                                            decoration: InputDecoration(
+                                                labelText: "Stock Number"),
+                                          ),
+                                          actions: [
+                                            ElevatedButton(
+                                                onPressed: () {},
+                                                child: Text("Cancel")),
+                                            ElevatedButton(
+                                                onPressed: () {},
+                                                child: Text("ok"))
+                                          ],
+                                        );
+                                      },
+                                    );
+                                  },
+                                  child: Text(
+                                    "Restock",
+                                    style: TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white),
+                                  )),
+                              ElevatedButton(
+                                  style: ButtonStyle(
+                                      // side:
+                                      //     WidgetStatePropertyAll(BorderSide()),
+                                      backgroundColor:
+                                          WidgetStatePropertyAll(button2)),
+                                  onPressed: () {
+                                    showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return AlertDialog(
+                                          title: Text("Are You Sure"),
+                                          actions: [
+                                            ElevatedButton(
+                                                onPressed: () {},
+                                                child: Text("Cancel")),
+                                            ElevatedButton(
+                                                onPressed: () {
+                                                  
+                                                },
+                                                child: Text("ok"))
+                                          ],
+                                        );
+                                      },
+                                    );
+                                  },
+                                  child: Text(
+                                    "Delete",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 13,
+                                        color: Colors.white),
+                                  ))
+                            ],
+                          ),
                         ],
                       ),
                     );

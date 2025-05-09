@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mainproject/main.dart';
 
 class Custometextfield extends StatelessWidget {
   String? hinttext;
@@ -24,9 +25,11 @@ class Custometextfield extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mqh = MediaQuery.of(context).size.width;
+    final mqw = MediaQuery.of(context).size.height;
     return Container(
-      width: wid,
-      height: hei,
+      width: hei,
+      height: wid,
       child: TextFormField(
         
         keyboardType: keyboard,
@@ -39,6 +42,7 @@ class Custometextfield extends StatelessWidget {
             fillColor: Colors.white,
             filled: true,
             hintText: hinttext,
+            
             hintStyle: TextStyle(color: Colors.black38, fontSize: 20),
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(sides ?? 30),

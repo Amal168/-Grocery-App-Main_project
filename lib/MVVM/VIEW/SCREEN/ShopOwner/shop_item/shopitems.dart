@@ -95,7 +95,12 @@ class _ShopitemsState extends State<Shopitems>
             ),
           )
         ],
-        bottom: TabBar(isScrollable: true, controller: tabcontrol, tabs: [
+        bottom: TabBar(
+          labelColor: Colors.white,
+          unselectedLabelColor: Colors.white,
+          indicatorColor: Colors.white,
+          indicatorWeight: 5,
+          isScrollable: true, controller: tabcontrol, tabs: [
           Tab(
             text: "all",
           ),
@@ -118,10 +123,10 @@ class _ShopitemsState extends State<Shopitems>
       ),
       body: Expanded(
         child: TabBarView(controller: tabcontrol, children: [
-          //  AllTabPage(),
-          Center(
-            child: Text("All"),
-          ),
+           AllTab(),
+          // Center(
+          //   child: Text("All"),
+          // ),
           // Center(child: Text("Rice"),),
           Ricetab(),
           SoapTab(),

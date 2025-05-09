@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mainproject/MVVM/VIEW/SCREEN/ShopOwner/shop_profile/shopCommentRating.dart';
+import 'package:mainproject/MVVM/VIEW/SCREEN/Common_Screen/shopCommentRating.dart';
 import 'package:mainproject/MVVM/VIEW/SCREEN/ShopOwner/shop_profile/shopEditPrfile.dart';
 import 'package:mainproject/MVVM/UTILS/color.dart';
 import 'package:mainproject/MVVM/UTILS/custome/customebutton.dart';
@@ -7,7 +7,7 @@ import 'package:mainproject/MVVM/UTILS/custome/profile_buttons.dart';
 import 'package:mainproject/MVVM/UTILS/custome/text_display_cards.dart';
 import 'package:mainproject/MVVM/VIEW/SCREEN/customer/Profile/customer_Rating.dart';
 import 'package:mainproject/MVVM/VIEW/SCREEN/customer/Profile/edit_customer_profile.dart';
-import 'package:mainproject/MVVM/VIEW/authenication/Commonlogin.dart';
+import 'package:mainproject/MVVM/VIEW/authenication/Common_screens/Commonlogin.dart';
 
 class CustomerProfile extends StatefulWidget {
   const CustomerProfile({super.key});

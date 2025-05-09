@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mainproject/MVVM/UTILS/color.dart';
-import 'package:mainproject/MVVM/VIEW/SCREEN/ShopOwner/shop_Order/Shop_Customer_Chat.dart';
+import 'package:mainproject/MVVM/VIEW/SCREEN/Common_Screen/Shop_Customer_Chat.dart';
 import 'package:mainproject/MVVM/VIEW/SCREEN/ShopOwner/shop_Order/shop_customer_profile.dart';
 
 class Ordersendlist extends StatefulWidget {
@@ -25,7 +25,7 @@ class _OrdersendlistState extends State<Ordersendlist> {
                 Navigator.pop(context);
               },
               icon: Icon(Icons.keyboard_return)),
-          title: Text(
+          title:const Text(
             "List",
             style: TextStyle(
                 fontSize: 20,
@@ -56,7 +56,7 @@ class _OrdersendlistState extends State<Ordersendlist> {
                   leading: ClipRRect(
                     borderRadius: BorderRadius.circular(10),
                     child: Image.asset(
-                      "asset/images (1).jpg",
+                      "asset/images.jpg",
                       width: 80,
                       height: 80,
                       fit: BoxFit.cover,
@@ -64,7 +64,7 @@ class _OrdersendlistState extends State<Ordersendlist> {
                   ),
                   title: Row(
                     children: [
-                      Column(
+                     const Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
@@ -76,7 +76,7 @@ class _OrdersendlistState extends State<Ordersendlist> {
                           Text("20Rs"),
                         ],
                       ),
-                      SizedBox(
+                     const SizedBox(
                         width: 20,
                       ),
                       Column(
@@ -146,7 +146,7 @@ class _OrdersendlistState extends State<Ordersendlist> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    Text(
+                   const Text(
                       "Subtotal",
                       style: TextStyle(
                           fontSize: 15,
@@ -176,7 +176,7 @@ class _OrdersendlistState extends State<Ordersendlist> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    Text(
+                  const  Text(
                       "Delivery Fee",
                       style: TextStyle(
                           fontSize: 15,
@@ -199,14 +199,14 @@ class _OrdersendlistState extends State<Ordersendlist> {
                     )
                   ],
                 ),
-                SizedBox(
+              const  SizedBox(
                   height: 10,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    Text(
+                  const  Text(
                       "Discount",
                       style: TextStyle(
                           fontSize: 15,
@@ -242,7 +242,7 @@ class _OrdersendlistState extends State<Ordersendlist> {
                             radiobuttion = newValue!;
                           });
                         }),
-                    Text("Check",
+                  const  Text("Check",
                         style: TextStyle(
                             fontSize: 15,
                             fontFamily: "Inria_Sans",
@@ -256,7 +256,7 @@ class _OrdersendlistState extends State<Ordersendlist> {
                             radiobuttion = newValue!;
                           });
                         }),
-                    Text("Uncheck",
+                   const Text("Uncheck",
                         style: TextStyle(
                             fontSize: 15,
                             fontFamily: "Inria_Sans",
@@ -270,7 +270,7 @@ class _OrdersendlistState extends State<Ordersendlist> {
                     color: greenbutton,
                     shape: Border.all(color: Colors.black26),
                     onPressed: () {},
-                    child: Row(
+                    child:const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Text(

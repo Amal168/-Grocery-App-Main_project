@@ -6,8 +6,8 @@ import 'package:mainproject/MVVM/UTILS/custome/custometextfield.dart';
 import 'package:mainproject/MVVM/VIEW/SCREEN/ShopOwner/mainpage.dart';
 import 'package:mainproject/MVVM/VIEW/SCREEN/ShopOwner/shop_bottum_bar.dart';
 import 'package:mainproject/MVVM/VIEW/SCREEN/customer/Customer_Shop_Main_Page.dart';
-import 'package:mainproject/MVVM/VIEW/authenication/commonregister.dart';
-import 'package:mainproject/MVVM/VIEW/authenication/forgotpassword.dart';
+import 'package:mainproject/MVVM/VIEW/authenication/Common_screens/commonregister.dart';
+import 'package:mainproject/MVVM/VIEW/authenication/Common_screens/forgotpassword.dart';
 
 class Commonlogin extends StatefulWidget {
   const Commonlogin({super.key});
@@ -40,17 +40,19 @@ class _CommonloginState extends State<Commonlogin> {
               key: formkey,
               child: SingleChildScrollView(
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+                  padding:
+                      const EdgeInsets.only(left: 20, right: 20, bottom: 20),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        width: 225,
-                        height: 279,
+                        // width: 225,
+                        // height: 279,
                         child: Text(
                           "Welcome \n\n to \n\n List2Local",
                           style: TextStyle(
                               fontSize: 36,
+                              fontFamily: "Inknut_Antiqua",
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
                               fontStyle: FontStyle.normal),
@@ -64,7 +66,13 @@ class _CommonloginState extends State<Commonlogin> {
                           hinttext: "Email",
                           validate: (p0) {
                             if (email.text.isEmpty) {
-                              return "Enter Your Email";
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    elevation: 10,
+                                    backgroundColor: toggle2color,
+                                    shape: CircleBorder(eccentricity: 0.9),
+                                      content:
+                                          Text("Please Enter  Your Email",textAlign: TextAlign.center,)));
                             }
                             return null;
                           },
@@ -76,7 +84,13 @@ class _CommonloginState extends State<Commonlogin> {
                           hinttext: "password",
                           validate: (p0) {
                             if (password.text.isEmpty) {
-                              return "Enter Your Password";
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    elevation: 10,
+                                    backgroundColor: toggle2color,
+                                    shape: CircleBorder(eccentricity: 0.9),
+                                      content:
+                                          Text("Please Enter  Your Password",textAlign: TextAlign.center,)));
                             }
                             return null;
                           },
@@ -93,8 +107,9 @@ class _CommonloginState extends State<Commonlogin> {
                               });
                             },
                             child: Text(
-                              "forgot password",
+                              "Forgot password",
                               style: TextStyle(
+                                fontFamily: "Inknut_Antiqua",
                                 color: bluetext,
                                 fontSize: 20,
                               ),
@@ -125,16 +140,21 @@ class _CommonloginState extends State<Commonlogin> {
                                           builder: (_) =>
                                               CustomerShopMainPage()));
                                 }
-                                if (email.text.isEmpty && password.text.isEmpty) {
+                                if (email.text.isEmpty &&
+                                    password.text.isEmpty) {
                                   ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                          content: Text(
-                                              "Enter Your Email And Password",style: TextStyle(color: Colors.white),)));
+                                  SnackBar(
+                                    elevation: 10,
+                                    backgroundColor: toggle2color,
+                                    shape: CircleBorder(eccentricity: 0.9),
+                                      content:
+                                          Text("Please Enter  Your Email And Password",textAlign: TextAlign.center,)));
                                 }
                               }
                             });
                           },
                           text: "Login",
+                          textstyl: "Inknut_Antiqua",
                           color: WidgetStatePropertyAll(redbutton)),
                       SizedBox(
                         height: 58,
@@ -156,8 +176,11 @@ class _CommonloginState extends State<Commonlogin> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text("Don't have account ?",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 15)),
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 15,
+                                fontFamily: "Inknut_Antiqua",
+                              )),
                           TextButton(
                               onPressed: () {
                                 setState(() {
@@ -168,8 +191,11 @@ class _CommonloginState extends State<Commonlogin> {
                                 });
                               },
                               child: Text("Register now",
-                                  style:
-                                      TextStyle(color: bluetext, fontSize: 15)))
+                                  style: TextStyle(
+                                    color: bluetext,
+                                    fontSize: 15,
+                                    fontFamily: "Inknut_Antiqua",
+                                  )))
                         ],
                       )
                     ],

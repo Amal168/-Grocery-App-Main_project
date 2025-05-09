@@ -11,6 +11,7 @@ class Ordersend extends StatefulWidget {
 }
 
 class _OrdersendState extends State<Ordersend> {
+  List send = ["Macha","Soman","MIchal","Farise","Famie"];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,21 +22,19 @@ class _OrdersendState extends State<Ordersend> {
             children: [
               Expanded(
                 child: ListView.builder(
-                  itemCount: 5,
+                  itemCount: send.length,
                   itemBuilder: (context, index) {
                     return InkWell(
                       onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (_) => Ordersendlist()));
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (_) => Ordersendlist()));
                       },
                       child: Card(
                         color: Colors.white,
                         elevation: 10,
                         child: ListTile(
                           leading: CircleAvatar(),
-                          title: Text("Customer Name"),
+                          title: Text(send[index]),
                         ),
                       ),
                     );

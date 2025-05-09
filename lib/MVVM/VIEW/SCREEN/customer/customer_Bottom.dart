@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mainproject/MVVM/UTILS/color.dart';
 import 'package:mainproject/MVVM/VIEW/SCREEN/customer/Customer_shop.dart';
 import 'package:mainproject/MVVM/VIEW/SCREEN/customer/customer_order.dart';
 import 'package:mainproject/MVVM/VIEW/SCREEN/customer/product/Product_items.dart';
@@ -12,26 +13,8 @@ class CustomerBottom extends StatefulWidget {
 
 class _CustomerBottomState extends State<CustomerBottom> {
   final List<Widget> _CustomerPage = [
-    // Center(
-    //   child: Text(
-    //     "Products",
-    //     style: TextStyle(fontSize: 20),
-    //   ),
-    // ),
     ProductItems(),
-    // Center(
-    //   child: Text(
-    //     "Oredrs",
-    //     style: TextStyle(fontSize: 20),
-    //   ),
-    // ),
     CustomerOrder(),
-    // Center(
-    //   child: Text(
-    //     "Shop",
-    //     style: TextStyle(fontSize: 20),
-    //   ),
-    // ),
     CustomerShop()
   ];
   int _selectedindex = 0;
@@ -45,29 +28,70 @@ class _CustomerBottomState extends State<CustomerBottom> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: _CustomerPage[_selectedindex],
-      ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.only(bottom: 10,right: 20,left: 20),
-        child: BottomNavigationBar(
-          elevation: 50,
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-                icon:  SizedBox.shrink(),
-                label: "Products"),
-            BottomNavigationBarItem(
-                icon: SizedBox.shrink(),
-                label: "Orders"),
-            BottomNavigationBarItem(
-                icon: SizedBox.shrink(),
-                label: "Shop"),
-          ],
-          currentIndex: _selectedindex,
-          enableFeedback: true,
-          onTap: _ontapMethod,
+        body: Center(
+          child: _CustomerPage[_selectedindex],
         ),
-      ),
-    );
+        bottomNavigationBar: Padding(
+          padding: const EdgeInsets.only(bottom: 10, right: 20, left: 20),
+          child: Card(
+            elevation: 10,
+            child: Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  border: Border.all(),
+                  color: Colors.white),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  TextButton(
+                    style: ButtonStyle(
+                        backgroundColor: WidgetStatePropertyAll(
+                      _selectedindex == 0 ? Colors.green : Colors.white,
+                    )),
+                    onPressed: () => _ontapMethod(0),
+                    child: Text(
+                      'Products',
+                      style: TextStyle(
+                        color:
+                            _selectedindex == 0 ? Colors.white : Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  TextButton(
+                    style: ButtonStyle(
+                        backgroundColor: WidgetStatePropertyAll(
+                      _selectedindex == 1 ? Colors.green : Colors.white,
+                    )),
+                    onPressed: () => _ontapMethod(1),
+                    child: Text(
+                      'Orders',
+                      style: TextStyle(
+                        color:
+                            _selectedindex == 1 ? Colors.white : Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  TextButton(
+                    style: ButtonStyle(
+                        backgroundColor: WidgetStatePropertyAll(
+                      _selectedindex == 2 ? Colors.green : Colors.white,
+                    )),
+                    onPressed: () => _ontapMethod(2),
+                    child: Text(
+                      'Shop',
+                      style: TextStyle(
+                        color:
+                            _selectedindex == 2 ? Colors.white : Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ));
   }
 }

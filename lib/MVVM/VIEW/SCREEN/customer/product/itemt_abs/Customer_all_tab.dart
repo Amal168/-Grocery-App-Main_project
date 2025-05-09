@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:mainproject/MVVM/UTILS/color.dart';
 
-
-class CustomerSnacksTab extends StatefulWidget {
-  CustomerSnacksTab({super.key});
+class CustomerAllTab extends StatefulWidget {
+  CustomerAllTab({super.key});
 
   @override
-  State<CustomerSnacksTab> createState() => _CustomerSnacksTabState();
+  State<CustomerAllTab> createState() => _CustomerAllTabState();
 }
 
-class _CustomerSnacksTabState extends State<CustomerSnacksTab> {
+class _CustomerAllTabState extends State<CustomerAllTab> {
   String radiobuttion = " ";
   int selectIndex = 0;
-  List snacks = ["All","Biscute","Packet Snacks","Loose Snaks","Laces","Ice Cream"];
    Color lowcolor = redbutton;
   Color highcolor = toglecolor;
   int count = 6;
@@ -23,33 +21,12 @@ class _CustomerSnacksTabState extends State<CustomerSnacksTab> {
    });
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
-          Card(
-            elevation: 10,
-            child: Container(
-                height: 40,
-                decoration:
-                    BoxDecoration(border: Border.all(color: Colors.black26)),
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: snacks.length,
-                  itemBuilder: (context, index) {
-                    return TextButton(
-                        onPressed: () {
-                          setState(() {
-                            selectIndex = index;
-                          });
-                        },
-                        child: Text(
-                          snacks[index],
-                        ));
-                  },
-                )),
-          ),
           Expanded(
             child: GridView.builder(
               itemCount: 5,

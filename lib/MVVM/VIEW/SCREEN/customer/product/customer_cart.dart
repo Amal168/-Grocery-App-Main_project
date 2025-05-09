@@ -10,9 +10,10 @@ class CustomerCart extends StatefulWidget {
 
 class _CustomerCartState extends State<CustomerCart> {
   List<int> itemCounts = List.generate(3, (index) => 1);
-  String? radioButton = "1"; // Default selection
-  int deliveryFee = 2;
+  String? radioButton = "1"; 
+  int deliveryFee = 0;
   int discount = 0;
+  
 
   int get subtotal => itemCounts.fold(0, (sum, count) => sum + (count * 20));
 
@@ -68,7 +69,7 @@ class _CustomerCartState extends State<CustomerCart> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       IconButton(onPressed: () {
-                        
+                        // itemCounts[index].
                       },icon: Icon(Icons.close),),
                       Row(
                         children: [
@@ -122,8 +123,8 @@ class _CustomerCartState extends State<CustomerCart> {
                 const SizedBox(height: 10),
                 Row(
                   children: [
-                    buildRadioButton("Check", "1"),
-                    buildRadioButton("Uncheck", "2"),
+                    buildRadioButton("Pickup", "1"),
+                    buildRadioButton("Delivery", "2"),
                   ],
                 ),
                 MaterialButton(
@@ -143,18 +144,20 @@ class _CustomerCartState extends State<CustomerCart> {
                     );
                   },
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const Text("Total:",
                           style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
                               color: Colors.white)),
+                              SizedBox(width: 10,),
                       Text("${subtotal + deliveryFee - discount} Rs",
                           style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
                               color: Colors.white)),
+                              SizedBox(width: 200,),
+
                       const Icon(Icons.send, color: Colors.white),
                     ],
                   ),

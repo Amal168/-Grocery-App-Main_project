@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
+import 'package:mainproject/MVVM/UTILS/color.dart';
 
 class CustomerRiceTab extends StatefulWidget {
   CustomerRiceTab({super.key});
@@ -10,6 +12,16 @@ class CustomerRiceTab extends StatefulWidget {
 class _CustomerRiceTabState extends State<CustomerRiceTab> {
   String radiobuttion = " ";
   int selectIndex = 0;
+  List rice = ["All","Pachary", "Mudery", "Gothambe", "Biryni Rice", "Matta"];
+  Color lowcolor = redbutton;
+  Color highcolor = toglecolor;
+  int count = 6;
+  bool buttonindex=true;
+  void buttoncolor(index) {
+   setState(() {
+      buttonindex = index!;
+   });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +36,7 @@ class _CustomerRiceTabState extends State<CustomerRiceTab> {
                     BoxDecoration(border: Border.all(color: Colors.black26)),
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: 10,
+                  itemCount: rice.length,
                   itemBuilder: (context, index) {
                     return TextButton(
                         onPressed: () {
@@ -33,7 +45,7 @@ class _CustomerRiceTabState extends State<CustomerRiceTab> {
                           });
                         },
                         child: Text(
-                          "data",
+                          rice[index],
                         ));
                   },
                 )),
@@ -78,9 +90,24 @@ class _CustomerRiceTabState extends State<CustomerRiceTab> {
                           SizedBox(
                             height: 10,
                           ),
-                          Text("Only 4 Left",
-                              style:
-                                  TextStyle(fontSize: 15, color: Colors.red)),
+                          Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text("Only ",
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      color: count < 4 ? lowcolor : highcolor)),
+                              Text("${count} ",
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      color: count < 4 ? lowcolor : highcolor)),
+                              Text("Left",
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      color: count < 4 ? lowcolor : highcolor)),
+                            ],
+                          ),
                           SizedBox(
                             height: 10,
                           ),
@@ -89,10 +116,19 @@ class _CustomerRiceTabState extends State<CustomerRiceTab> {
                             height: 10,
                           ),
                           ElevatedButton(
-                            onPressed: () {
-                              
-                            },
-                            child: Text("Selet"),
+                            style: ButtonStyle(
+                                backgroundColor: WidgetStatePropertyAll(
+                                    buttonindex == 0
+                                        ? Colors.white
+                                        : toggle2color)),
+                            onPressed: () {},
+                            child: Text(
+                              "Selet",
+                              style: TextStyle(
+                                  color: buttonindex == 0
+                                      ? Colors.black
+                                      : Colors.white),
+                            ),
                           )
                         ],
                       ),

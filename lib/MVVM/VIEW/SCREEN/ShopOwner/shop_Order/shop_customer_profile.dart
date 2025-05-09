@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mainproject/MVVM/VIEW/SCREEN/ShopOwner/shop_profile/shopCommentRating.dart';
+import 'package:mainproject/MVVM/VIEW/SCREEN/Common_Screen/shopCommentRating.dart';
 import 'package:mainproject/MVVM/VIEW/SCREEN/ShopOwner/shop_profile/shopEditPrfile.dart';
 import 'package:mainproject/MVVM/UTILS/color.dart';
 import 'package:mainproject/MVVM/UTILS/custome/profile_buttons.dart';
